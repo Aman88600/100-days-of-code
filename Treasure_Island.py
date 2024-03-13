@@ -30,12 +30,12 @@ print("Welcome to Treasure Island!")
 print("Your mission is to find Treasure.")
 
 # 4. Give the user a choice between 2 choices left and right
-choice_left_or_right = input("You're at a road. Where do you want to go? Type \"left\" or \"right\"\n")
+choice_left_or_right = input("You're at a road. Where do you want to go? Type \"left\" or \"right\"\n").lower()
 
 if choice_left_or_right == "left":
-    choice_swim_or_wait = input("You come to a lake. There is an Island in the middle of the lake. Type \"wait\" to wait for a boat. Type \"swim\" to swim accross\n")
+    choice_swim_or_wait = input("You come to a lake. There is an Island in the middle of the lake. Type \"wait\" to wait for a boat. Type \"swim\" to swim accross\n").lower()
     if choice_swim_or_wait == "wait":
-        chocie_door = input("You arrived at the Island unharmed. There is a house with 3 doors. One red, one yellow, one blue. Which color door do you choose?\n")
+        chocie_door = input("You arrived at the Island unharmed. There is a house with 3 doors. One red, one yellow, one blue. Which color door do you choose?\n").lower()
         if chocie_door == "yellow":
             print("You Get the Treasure. You Win!\n")
         elif chocie_door == "red":
