@@ -42,7 +42,13 @@ if choice_left_or_right == "left":
             print("It's a room full of fire. Game Over!\n")
         elif chocie_door == "blue":
             print("You enter a room full of beasts. Game Over!\n")
+        else:
+            print("This door does not exist. Game Over!\n")
     elif choice_swim_or_wait == "swim":
         print("You met a giant Shark. Game Over!\n")
+    else:
+        print("This Choice Does not exist. Game Over!\n")
 elif choice_left_or_right == "right":
     print("You fell into a hole. Game Over!\n")
+else:
+    print("This direction does not exist in the game. Game Over!\n")
