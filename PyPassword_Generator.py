@@ -13,6 +13,17 @@ def generator(number_of_something, string_of_something):
     password_str = "".join(password)
     return password_str
 
+# Shuffle Function
+def shuffle(password_string):
+    password_string = list(password_string)
+    num1 = random.randint(0, len(password_string) - 1)
+    num2 = random.randint(0, len(password_string) - 1)
+    # Swaping
+    temp = password_string[num1]
+    password_string[num1] = password_string[num2]
+    password_string[num2] = temp
+    password_string = "".join(password_string)
+    return password_string
 # 1. Greet the User
 print("Welcome to the PyPassword Generator!")
 # 2. Ask to user to enter the number of letters he/she would like
@@ -30,5 +41,10 @@ numbers = "0123456789"
 numbers_str = generator(number_of_numbers, numbers)
 symbols = "!@#$%^&*()[]<>?/+-"
 symbols_str = generator(number_of_symbols, symbols)
+
+final_password = lettes_str + numbers_str + symbols_str
+for i in range(100):
+    final_password = shuffle(final_password)
+
 # 6. Show the password to the user
-print(f"Password = {lettes_str}{numbers_str}{symbols_str}")
+print(f"Your password is : {final_password}")
