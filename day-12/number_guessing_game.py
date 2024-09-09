@@ -1,3 +1,4 @@
+import sys
 from random import randint
 # This is a number guessing game, with 2 difficulty levels, easy and hard
 # Easy is 10 attempts
@@ -16,8 +17,25 @@ if difficulty == 'easy':
     while attempts > 0:
         print(f"You have {attempts} Attempts left")
         attempts -= 1
+    
+        predicted_number = int(input("Make a prediction : "))
+        if predicted_number == number:
+            print("You Win!")
+            break
+        elif predicted_number > number:
+            print("Too High!")
+        else:
+            print("Too Low!")
 else:
     attempts = 5
     while attempts > 0:
         print(f"You have {attempts} Attempts left")
+        predicted_number = int(input("Make a prediction : "))
+        if predicted_number == number:
+            print("You Win!")
+            break
+        elif predicted_number > number:
+            print("Too High!")
+        else:
+            print("Too Low!")
         attempts -= 1
