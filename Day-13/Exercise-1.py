@@ -15,12 +15,13 @@ dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"] # List index goes from 0 
 dice_num = randint(0,5)
 print(dice_imgs[dice_num])
 
-# # Play Computer
-# year = int(input("What's your year of birth?"))
-# if year > 1980 and year < 1994:
-#   print("You are a millenial.")
-# elif year > 1994:
-#   print("You are a Gen Z.")
+# Play Computer
+year = int(input("What's your year of birth?"))
+# Here the bug is in year 1994 as there is no condition that accounts for that year.
+if year > 1980 and year < 1994:
+  print("You are a millenial.")
+elif year >= 1994:
+  print("You are a Gen Z.")
 
 # # Fix the Errors
 # age = input("How old are you?")
