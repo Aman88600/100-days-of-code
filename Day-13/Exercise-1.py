@@ -2,8 +2,8 @@
 
 # Describe Problem
 def my_function():
-  for i in range(1, 20):
-    # Bug is here because the range() function does not go to 20 it only goes till 19.
+  for i in range(1, 21): # changed 20 to 21
+    # Bug is here because the range() function does not go to 20 it only goes till 19
     if i == 20:
       print("You got it")
 my_function()
