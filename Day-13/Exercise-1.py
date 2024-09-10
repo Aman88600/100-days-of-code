@@ -8,11 +8,12 @@ def my_function():
       print("You got it")
 my_function()
 
-# # Reproduce the Bug
-# from random import randint
-# dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"]
+# Reproduce the Bug
+from random import randint
+dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"] # List index goes from 0 to 5, not 1 to 6
 # dice_num = randint(1, 6)
-# print(dice_imgs[dice_num])
+dice_num = randint(0,5)
+print(dice_imgs[dice_num])
 
 # # Play Computer
 # year = int(input("What's your year of birth?"))
