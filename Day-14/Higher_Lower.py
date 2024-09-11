@@ -336,7 +336,7 @@ while correct_answer == True:
         while random_entry_A in used_entry:
             random_entry_A = randint(1, data_lenght - 1)
         used_entry.append(random_entry_A)
-        return [f"Compare {entry_name}: {data[random_entry_A]["name"]}, {data[random_entry_A]["description"]}, from {data[random_entry_A]["country"]}. {data[random_entry_A]["follower_count"]}", data[random_entry_A]["follower_count"]]
+        return [f"Compare {entry_name}: {data[random_entry_A]["name"]}, {data[random_entry_A]["description"]}, from {data[random_entry_A]["country"]}.", data[random_entry_A]["follower_count"]]
     # 5. Who has more followers Type 'A' or 'B':
     def compare_function(entry_A, entry_B):
         user_answer = input("Who has more followers Type 'A' or 'B': ")
