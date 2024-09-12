@@ -45,4 +45,8 @@ while True:
     coffee_type = input("What would you like?(espresso/latte/cappuccino):")
     if coffee_type == "off":
         break
-    print(f"Here is your {coffee_type} {coffee_emoji} Enjoy!")
+    elif coffee_type == "report":
+        for key in resources:
+            print(f"{key}: {resources[key]}")
+    else:
+        print(f"Here is your {coffee_type} {coffee_emoji} Enjoy!")
