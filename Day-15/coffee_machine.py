@@ -1,5 +1,4 @@
 coffee_emoji = '☕'
-print(coffee_emoji)
 MENU = {
     "espresso": {
         "ingredients": {
@@ -39,3 +38,9 @@ resources = {
     "coffee": 100,
     "money": 0,
 }
+
+
+# The coffee machine will run until stopped
+while True:
+    coffee_type = input("What would you like?(espresso/latte/cappuccino):")
+    print(f"Here is your {coffee_type} {coffee_emoji} Enjoy!")
