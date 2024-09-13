@@ -42,19 +42,21 @@ resources = {
 
 # The coffee machine will run until stopped
 while True:
-    coffee_type = input("What would you like?(espresso/latte/cappuccino):")
+    user_input = input("What would you like?(espresso/latte/cappuccino):")
     # Turn off feature
-    if coffee_type == "off":
+    if user_input == "off":
         break
     # report feature
-    elif coffee_type == "report":
-        for key in resources:
-            print(f"{key}: {resources[key]}")
-    elif coffee_type == "latte":
+    elif user_input == "report":
+        print(f"Water: {resources["water"]}ml")
+        print(f"Milk: {resources["milk"]}ml")
+        print(f"Coffee: {resources["coffee"]}g")
+        print(f"Money: ${resources["money"]}")
+    elif user_input == "latte":
         print(f"Here is your latte {coffee_emoji} Enjoy!")
-    elif coffee_type == "espresso":
+    elif user_input == "espresso":
         print(f"Here is your espresso {coffee_emoji} Enjoy!")
-    elif coffee_type == "cappuccino":
+    elif user_input == "cappuccino":
         print(f"Here is your cappuccino {coffee_emoji} Enjoy!")
     else:
-        print("Invalid Input")
+        print(f"{user_input} is a invalid Input")
