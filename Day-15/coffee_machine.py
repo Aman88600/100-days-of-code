@@ -39,6 +39,22 @@ resources = {
     "money": 0,
 }
 
+def check_resources(user_input):
+    # Condition to check espresso
+    if user_input != "espresso":
+        if (resources["milk"] < MENU[user_input]["ingredients"]["milk"]):
+            return "Sorry there is not enough milk"
+    if (resources["water"] < MENU[user_input]["ingredients"]["water"]):
+        return "Sorry ther is not enough water"
+    elif (resources["coffee"] < MENU[user_input]["ingredients"]["coffee"]):
+        return "Sorry there is not enough cofee"
+    else:
+        resources["water"] -= MENU[user_input]["ingredients"]["water"]
+        if user_input != "espresso":
+            resources["milk"] -= MENU[user_input]["ingredients"]["milk"]
+        resources["coffee"] -= MENU[user_input]["ingredients"]["coffee"]
+        return f"Here is your {user_input} {coffee_emoji} Enjoy!"
+
 
 # The coffee machine will run until stopped
 while True:
@@ -54,38 +70,11 @@ while True:
         print(f"Money: ${resources["money"]}")
     # latte feature
     elif user_input == "latte":
-        if (resources["water"] < MENU[user_input]["ingredients"]["water"]):
-            print("Sorry ther is not enough water")
-        elif (resources["milk"] < MENU[user_input]["ingredients"]["milk"]):
-            print("Sorry there is not enough milk")
-        elif (resources["coffee"] < MENU[user_input]["ingredients"]["coffee"]):
-            print("Sorry there is not enough cofee")
-        else:
-            resources["water"] -= MENU[user_input]["ingredients"]["water"]
-            resources["milk"] -= MENU[user_input]["ingredients"]["milk"]
-            resources["coffee"] -= MENU[user_input]["ingredients"]["coffee"]
-            print(f"Here is your {user_input} {coffee_emoji} Enjoy!")
+        print(check_resources(user_input))
     # espresso feature
     elif user_input == "espresso":
-        if (resources["water"] < MENU[user_input]["ingredients"]["water"]):
-            print("Sorry ther is not enough water")
-        elif (resources["coffee"] < MENU[user_input]["ingredients"]["coffee"]):
-            print("Sorry there is not enough coffee")
-        else:
-            resources["water"] -= MENU[user_input]["ingredients"]["water"]
-            resources["coffee"] -= MENU[user_input]["ingredients"]["coffee"]
-            print(f"Here is your {user_input} {coffee_emoji} Enjoy!")
+        print(check_resources(user_input))
     elif user_input == "cappuccino":
-        if (resources["water"] < MENU[user_input]["ingredients"]["water"]):
-            print("Sorry ther is not enough water")
-        elif (resources["milk"] < MENU[user_input]["ingredients"]["milk"]):
-            print("Sorry there is not enough milk")
-        elif (resources["coffee"] < MENU[user_input]["ingredients"]["coffee"]):
-            print("Sorry there is not enough cofee")
-        else:
-            resources["water"] -= MENU[user_input]["ingredients"]["water"]
-            resources["milk"] -= MENU[user_input]["ingredients"]["milk"]
-            resources["coffee"] -= MENU[user_input]["ingredients"]["coffee"]
-            print(f"Here is your {user_input} {coffee_emoji} Enjoy!")
+        print(check_resources(user_input))
     else:
         print(f"{user_input} is a invalid Input")
