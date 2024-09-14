@@ -67,7 +67,14 @@ while True:
             print(f"Here is your {user_input} {coffee_emoji} Enjoy!")
     # espresso feature
     elif user_input == "espresso":
-        print(f"Here is your espresso {coffee_emoji} Enjoy!")
+        if (resources["water"] < MENU[user_input]["ingredients"]["water"]):
+            print("Sorry ther is not enough water")
+        elif (resources["coffee"] < MENU[user_input]["ingredients"]["coffee"]):
+            print("Sorry there is not enough coffee")
+        else:
+            resources["water"] -= MENU[user_input]["ingredients"]["water"]
+            resources["coffee"] -= MENU[user_input]["ingredients"]["coffee"]
+            print(f"Here is your {user_input} {coffee_emoji} Enjoy!")
     elif user_input == "cappuccino":
         print(f"Here is your cappuccino {coffee_emoji} Enjoy!")
     else:
