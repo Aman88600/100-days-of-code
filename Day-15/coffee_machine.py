@@ -76,6 +76,16 @@ while True:
             resources["coffee"] -= MENU[user_input]["ingredients"]["coffee"]
             print(f"Here is your {user_input} {coffee_emoji} Enjoy!")
     elif user_input == "cappuccino":
-        print(f"Here is your cappuccino {coffee_emoji} Enjoy!")
+        if (resources["water"] < MENU[user_input]["ingredients"]["water"]):
+            print("Sorry ther is not enough water")
+        elif (resources["milk"] < MENU[user_input]["ingredients"]["milk"]):
+            print("Sorry there is not enough milk")
+        elif (resources["coffee"] < MENU[user_input]["ingredients"]["coffee"]):
+            print("Sorry there is not enough cofee")
+        else:
+            resources["water"] -= MENU[user_input]["ingredients"]["water"]
+            resources["milk"] -= MENU[user_input]["ingredients"]["milk"]
+            resources["coffee"] -= MENU[user_input]["ingredients"]["coffee"]
+            print(f"Here is your {user_input} {coffee_emoji} Enjoy!")
     else:
         print(f"{user_input} is a invalid Input")
