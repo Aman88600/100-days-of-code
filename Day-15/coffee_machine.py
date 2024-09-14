@@ -52,8 +52,20 @@ while True:
         print(f"Milk: {resources["milk"]}ml")
         print(f"Coffee: {resources["coffee"]}g")
         print(f"Money: ${resources["money"]}")
+    # latte feature
     elif user_input == "latte":
-        print(f"Here is your latte {coffee_emoji} Enjoy!")
+        if (resources["water"] < MENU[user_input]["ingredients"]["water"]):
+            print("Sorry ther is not enough water")
+        elif (resources["milk"] < MENU[user_input]["ingredients"]["milk"]):
+            print("Sorry there is not enough milk")
+        elif (resources["coffee"] < MENU[user_input]["ingredients"]["coffee"]):
+            print("Sorry there is not enough cofee")
+        else:
+            resources["water"] -= MENU[user_input]["ingredients"]["water"]
+            resources["milk"] -= MENU[user_input]["ingredients"]["milk"]
+            resources["coffee"] -= MENU[user_input]["ingredients"]["coffee"]
+            print(f"Here is your {user_input} {coffee_emoji} Enjoy!")
+    # espresso feature
     elif user_input == "espresso":
         print(f"Here is your espresso {coffee_emoji} Enjoy!")
     elif user_input == "cappuccino":
