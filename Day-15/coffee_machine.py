@@ -62,7 +62,7 @@ def insert_coin(user_input):
     total_value = (COIN_VALUES["quarter"] * quarter) + (COIN_VALUES["dime"] * dime) + (COIN_VALUES["nickel"] * nickel) + (COIN_VALUES["penny"] * penny) 
     if MENU[user_input]["cost"] <= total_value:
         # Adding money to machine
-        resources["money"] += total_value
+        resources["money"] += MENU[user_input]["cost"]
         # Giving user change back
         amount = total_value - MENU[user_input]["cost"] 
         formatted_price = "{:.2f}".format(amount)
