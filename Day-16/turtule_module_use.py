@@ -5,10 +5,11 @@ from turtle import Turtle, Screen
 timmy = Turtle()
 print(timmy)
 timmy.shape("turtle")
-timmy.color("blue", "blue")
+timmy.color("coral")
 
 my_screen = Screen()
 print(my_screen.canvheight)
+timmy.forward(100)
 
 # This function will hold the screen until we click in it
 my_screen.exitonclick()
