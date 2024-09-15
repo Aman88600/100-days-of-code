@@ -14,5 +14,8 @@
 # # This function will hold the screen until we click in it
 # my_screen.exitonclick()
 
-from prettytable import PrettyTabel
-table = PrettyTabel()
+from prettytable import PrettyTable
+table = PrettyTable()
+table.add_column("Pokemon Name", ["Pikachu", "Squirtle", "Charmander"])
+table.add_column("Type", ["Electric", "Water", "Fire"])
+print(table)
