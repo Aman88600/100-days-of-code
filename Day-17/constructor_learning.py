@@ -1,7 +1,15 @@
 class User:
     def __init__(self, username):
         self.username = username
-        # Default attribute
         self.followers = 0
-user_1 = User("Aman")
-print(user_1.username, user_1.followers)
+        self.following = 0
+
+    def follow(self, user):
+        self.following += 1
+        user.followers += 1
+aman = User("Aman Basoya")
+nikhil = User("Nikhil Sharma")
+
+aman.follow(nikhil)
+print(aman.following)
+print(nikhil.followers)
