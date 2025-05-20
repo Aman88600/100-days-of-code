@@ -18,7 +18,7 @@ else:
 
 while attempts > 0:
     print(f"You have {attempts} attempts remaining to guess the number.")
-    guess = int(input("Guess the number"))
+    guess = int(input("Guess the number : "))
     if guess == number:
         print(f'You got it number is {number}')
         break
