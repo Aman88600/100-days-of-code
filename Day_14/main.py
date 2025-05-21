@@ -21,13 +21,11 @@ while keep_going:
         while num2 == num1:
             num2 = randint(0, len(instagram_celebrities) - 1)
     elif (instagram_celebrities[num1]["follower_count"] < instagram_celebrities[num2]["follower_count"]) and user_ans == "B":
-        num1 = randint(0, len(instagram_celebrities) - 1)
-        while num1 == num2:
-            num1 = randint(0, len(instagram_celebrities) - 1)
+        num1 = num2
+        num2 = randint(0, len(instagram_celebrities) - 1)
+        while num2 == num1:
+            num2 = randint(0, len(instagram_celebrities) - 1)
         keep_going = True
     else:
         keep_going = False
-# for i in instagram_celebrities:
-#     print(i)
-
-
+    print("\n\n")
