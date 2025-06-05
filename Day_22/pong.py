@@ -17,6 +17,12 @@ right_down_down = False
 right_up_down = False
 right_paddle_y = 0
 
+
+# ball
+ball_x = 240
+ball_y = 240
+ball_right = True
+ball_left = False
 running = True
 
 while running:
@@ -61,7 +67,19 @@ while running:
 
     pygame.draw.rect(window, (255,255,255), (0,left_paddle_y,10,100))
     pygame.draw.rect(window, (255,255,255), (490, right_paddle_y, 10, 100))
-    
+
+    pygame.draw.rect(window, (255,255,255), (ball_x,ball_y , 10, 10))
+    if ball_right:
+        ball_x += 1
+    elif ball_left:
+        ball_x -= 1
+
+    if ball_x == 400:
+        ball_right = False
+        ball_left = True
+    if ball_x == 0:
+        ball_right = True
+        ball_left = False
     clock.tick(60)
     pygame.display.flip()
 # Quit Pygame
