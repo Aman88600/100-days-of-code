@@ -11,11 +11,13 @@ pygame.display.set_caption("Pong")
 left_down_down = False
 left_up_down = False
 left_paddle_y = 0
+left_score = 0
 
 # Right Paddle
 right_down_down = False
 right_up_down = False
 right_paddle_y = 0
+right_score = 0
 
 
 # ball
@@ -88,21 +90,30 @@ while running:
             ball_right = False
             ball_left = True
         else:
-            break
+            ball_x = 240
+            ball_y = 240
+            left_score += 1
+            print(f"Left Socre = {left_score} Right Score = {right_score}")
     if ball_x == 10:
         if (ball_y > left_paddle_y) and (ball_y < left_paddle_y + 100):
             ball_right = True
             ball_left = False
         else:
-            break
-
+            ball_x = 240
+            ball_y = 240
+            right_score += 1
+            print(f"Left Socre = {left_score} Right Score = {right_score}")
     if ball_y == 0:
         ball_up = False
         ball_down = True
     if ball_y == 490:
         ball_down = False
         ball_up = True
-    clock.tick(60)
+
+    # Dashed Line
+    for i in range(25):
+        pygame.draw.rect(window, (255,255,255), (240,i * 20, 5, 10))
+    clock.tick(120)
     pygame.display.flip()
 # Quit Pygame
 pygame.quit()
