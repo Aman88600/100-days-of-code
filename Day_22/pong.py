@@ -7,6 +7,18 @@ width, height = 500, 500
 window = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pong")
 
+
+# Font setup
+font = pygame.font.SysFont(None, 48)  # None = default font, 48 = font size
+
+# Number to display
+number = 42
+text_color = (255, 255, 255)  # White
+bg_color = (0, 0, 0)          # Black
+
+# Render text surface
+
+
 # Left paddle
 left_down_down = False
 left_up_down = False
@@ -94,6 +106,8 @@ while running:
             ball_y = 240
             left_score += 1
             print(f"Left Socre = {left_score} Right Score = {right_score}")
+            ball_right = False
+            ball_left = True
     if ball_x == 10:
         if (ball_y > left_paddle_y) and (ball_y < left_paddle_y + 100):
             ball_right = True
@@ -103,6 +117,8 @@ while running:
             ball_y = 240
             right_score += 1
             print(f"Left Socre = {left_score} Right Score = {right_score}")
+            ball_right = True
+            ball_left = False
     if ball_y == 0:
         ball_up = False
         ball_down = True
@@ -110,6 +126,11 @@ while running:
         ball_down = False
         ball_up = True
 
+    text_surface = font.render(str(left_score), True, text_color)
+    window.blit(text_surface, (150, 0))
+
+    text_surface = font.render(str(right_score), True, text_color)
+    window.blit(text_surface, (350, 0))
     # Dashed Line
     for i in range(25):
         pygame.draw.rect(window, (255,255,255), (240,i * 20, 5, 10))
