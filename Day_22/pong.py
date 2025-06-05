@@ -23,6 +23,10 @@ ball_x = 240
 ball_y = 240
 ball_right = True
 ball_left = False
+ball_up = True
+ball_down = False
+
+
 running = True
 
 while running:
@@ -74,12 +78,30 @@ while running:
     elif ball_left:
         ball_x -= 1
 
-    if ball_x == 400:
-        ball_right = False
-        ball_left = True
-    if ball_x == 0:
-        ball_right = True
-        ball_left = False
+    if ball_up:
+        ball_y -= 1
+    elif ball_down:
+        ball_y += 1
+
+    if ball_x == 490:
+        if (ball_y > right_paddle_y) and (ball_y < right_paddle_y + 100):
+            ball_right = False
+            ball_left = True
+        else:
+            break
+    if ball_x == 10:
+        if (ball_y > left_paddle_y) and (ball_y < left_paddle_y + 100):
+            ball_right = True
+            ball_left = False
+        else:
+            break
+
+    if ball_y == 0:
+        ball_up = False
+        ball_down = True
+    if ball_y == 490:
+        ball_down = False
+        ball_up = True
     clock.tick(60)
     pygame.display.flip()
 # Quit Pygame
