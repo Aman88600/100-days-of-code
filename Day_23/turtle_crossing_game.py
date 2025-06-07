@@ -10,6 +10,7 @@ pygame.display.set_caption("Turtle Crossing Game")
 
 # Turtle Crossing
 turtle_x_y = [250, 490]
+true_break = False
 # Number of cars
 number_of_cars = 10
 car_x_y = []
@@ -31,6 +32,8 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 turtle_x_y[1] -= 10
+            if event.key == pygame.K_DOWN:
+                turtle_x_y[1] += 10
 
 
     if turtle_x_y[1] == 0:
@@ -38,7 +41,7 @@ while running:
     # Clear the screen by filling with black
     window.fill((0,0,0))
     for i in range(0,number_of_cars):
-        car_x_y[i][0] -= randint(1,10)
+        car_x_y[i][0] -= randint(1,3)
         if car_x_y[i][0] < -30:
             car_x_y[i][0] = 500
             car_x_y[i][1] = randint(0,490)
@@ -46,7 +49,15 @@ while running:
 
     for i in range(0, number_of_cars):
         pygame.draw.rect(window, color[i], (car_x_y[i][0], car_x_y[i][1], 30, 10))
-    
+
+    for i in range(0, number_of_cars):
+        if ( 10 >= car_x_y[i][1] - turtle_x_y[1] >= -10):
+            if (10 >= turtle_x_y[0] - car_x_y[i][0] >= -10): 
+                print(f'colide{i}')
+                true_break = True
+
+    if true_break:
+        break
     # Making the turtle
     pygame.draw.rect(window,(255, 255, 255), (turtle_x_y[0], turtle_x_y[1], 10, 10))
     pygame.display.flip()
