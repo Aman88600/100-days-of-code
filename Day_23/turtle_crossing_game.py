@@ -37,7 +37,7 @@ while running:
 
 
     if turtle_x_y[1] == 0:
-        break
+        turtle_x_y = [250, 490]
     # Clear the screen by filling with black
     window.fill((0,0,0))
     for i in range(0,number_of_cars):
