@@ -12,6 +12,7 @@ pygame.display.set_caption("Turtle Crossing Game")
 turtle_x_y = [250, 490]
 true_break = False
 # Number of cars
+max_speed = 3
 number_of_cars = 10
 car_x_y = []
 
@@ -38,10 +39,12 @@ while running:
 
     if turtle_x_y[1] == 0:
         turtle_x_y = [250, 490]
+        max_speed += 1
     # Clear the screen by filling with black
     window.fill((0,0,0))
+
     for i in range(0,number_of_cars):
-        car_x_y[i][0] -= randint(1,3)
+        car_x_y[i][0] -= randint(1,max_speed)
         if car_x_y[i][0] < -30:
             car_x_y[i][0] = 500
             car_x_y[i][1] = randint(0,490)
