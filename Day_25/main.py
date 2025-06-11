@@ -17,8 +17,7 @@
 #             temperatures.append(int(row[1]))
 # print(temperatures)
 
-import pandas
-data  = pandas.read_csv("weather_data.csv")
+# data  = pandas.read_csv("weather_data.csv")
 # print(data["temp"])
 # print(data.to_dict())
 
@@ -38,5 +37,16 @@ data  = pandas.read_csv("weather_data.csv")
 
 
 # print(data[data.temp == data["temp"].max()])
-monday = data[data.day == "Monday"]
-print((monday.temp * (9/5)) + 32)
+# monday = data[data.day == "Monday"]
+# print((monday.temp * (9/5)) + 32)
+
+# names = {"students" : ["Aman", "Nikhil"]}
+# data = pandas.DataFrame(names)
+# data.to_csv("names.csv")
+
+import pandas
+data = pandas.read_csv("Squirrel_Data.csv")
+fur_color = data[data["Primary Fur Color"] == "Gray"]
+fur_color_count = {"fur" : ["grey", "red", "black"], "count" : [len(data[data["Primary Fur Color"] == "Gray"]), len(data[data["Primary Fur Color"] == "Cinnamon"]), len(data[data["Primary Fur Color"] == "Black"])]}
+data = pandas.DataFrame(fur_color_count)
+data.to_csv("fur_data.csv")
