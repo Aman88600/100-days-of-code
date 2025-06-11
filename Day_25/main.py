@@ -20,14 +20,23 @@
 import pandas
 data  = pandas.read_csv("weather_data.csv")
 # print(data["temp"])
-print(data.to_dict())
+# print(data.to_dict())
 
-temp_list = data["temp"].to_list()
+# temp_list = data["temp"].to_list()
 
 # TO find the avg temp
-sum_temp = 0
-for temp in temp_list:
-    sum_temp += temp
+# 1st way
+# sum_temp = 0
+# for temp in temp_list:
+#     sum_temp += temp
 
-average_temp = sum_temp / len(temp_list)
-print(average_temp)
+# average_temp = sum_temp / len(temp_list)
+# print(average_temp)
+
+# 2 nd way
+# print(data["temp"].max())
+
+
+# print(data[data.temp == data["temp"].max()])
+monday = data[data.day == "Monday"]
+print((monday.temp * (9/5)) + 32)
