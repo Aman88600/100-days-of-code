@@ -7,6 +7,9 @@
 # numbers_2 = [num*2 for num in numbers]
 # print(numbers_2)
 
-names = ["Aman", "Nikhil", "Mukunds"]
-short_names = [name for name in names if len(name) <= 4]
-print(short_names)
+names = ["Aman", "Nikhil", "Mukund"]
+# short_names = [name for name in names if len(name) <= 4]
+# print(short_names)
+
+long_names = [name.upper() for name in names if len(name) >= 5]
+print(long_names)
