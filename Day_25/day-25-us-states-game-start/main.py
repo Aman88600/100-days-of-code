@@ -31,6 +31,10 @@ while len(guessed_states) <= 49:
     # Getting User Input
     answer = window.textinput(title=f" {len(guessed_states)}/50 Guess the State", prompt="What's another state")
 
+
+    # Breaking Condition
+    if answer == 'exit':
+        break
     # Checking
     if answer in states and answer not in guessed_states:
         guessed_states.append(answer)
