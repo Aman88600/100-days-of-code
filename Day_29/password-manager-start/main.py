@@ -3,6 +3,19 @@ from tkinter import *
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
+# save password funciton
+def save_password():
+    website = website_entry.get()
+    email = username_entry.get()
+    password = password_entry.get()
+    data = f"{website} | {email} | {password}\n"
+
+    with open("data.txt", "a") as file:
+        file.write(data)
+
+    website_entry.delete(0, END)
+    password_entry.delete(0, END)
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 # 1 Make a window (Done)
@@ -41,6 +54,7 @@ username_label = Label(window, text="Email/Username:")
 username_label.grid(row=2, column=0)
 # username Entry
 username_entry = Entry(window, width=50)
+username_entry.insert(0, "amanbasoya02@gmail.com")
 username_entry.grid(row=2, column=1, columnspan=2)
 # Password Label
 password_label = Label(window, text="Password")
@@ -51,8 +65,10 @@ password_entry.grid(row=3, column=1, columnspan=1)
 # Generate Password Button
 generate_entry = Button(window, text="Generate Password", width=14)
 generate_entry.grid(row=3, column=2, columnspan=1)
+
+
 # Add button
-add_button = Button(window, text="Add", width=43)
+add_button = Button(window, text="Add", width=43, command=save_password)
 add_button.grid(row=4, column=1, columnspan=2)
 # Main loop set
 window.mainloop()
