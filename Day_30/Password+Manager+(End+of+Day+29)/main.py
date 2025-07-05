@@ -103,7 +103,7 @@ def find_password():
 # 10 Password Entry (Done)
 # 11 generate password button (Done)
 # 12 Add Button (Done)
-# 13 find password function 
+# 13 find password function (Done``)
 
 # Window created
 window = Tk()
