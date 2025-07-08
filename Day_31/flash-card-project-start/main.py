@@ -1,6 +1,7 @@
 from tkinter import *
 import csv
 from random import randint
+import sys
 BACKGROUND_COLOR = "#B1DDC6"
 
 window = Tk()
@@ -34,31 +35,50 @@ with open("data/french_words.csv", "r") as csv_file:
 
 # Known
 known_words = []
+with open("data/known_word.csv", "r") as csv_file:
+    data = csv.reader(csv_file)
+    for row in data:
+        known_words.append(row)
+    
 # select a random word
 word_num = randint(0, len(words) - 1)
-while word_num in known_words:
+word = words[word_num]
+while word in known_words:
     word_num = randint(0, len(words) - 1)
-make_canvas(englis=words[word_num][1], french=words[word_num][0])
+    word = words[word_num]
+make_canvas(englis=word[1], french=word[0])
 
 
 def cross_function():
     global known_words
-    # known_words.append(word_num)
-    # select a random word
     word_num = randint(0, len(words) - 1)
-    while word_num in known_words:
+    word = words[word_num]
+    while word in known_words:
         word_num = randint(0, len(words) - 1)
-    make_canvas(englis=words[word_num][1], french=words[word_num][0])
+        word = words[word_num]
+    make_canvas(englis=word[1], french=word[0])
 
 def tick_function():
     global known_words
     global word_num
-    known_words.append(word_num)
+    global words
+    word = words[word_num]
+    known_words.append(word)
+    print(known_words)
+    # writing word to csv file
+    with open("data/known_word.csv", "a", newline="") as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerow(word)
     # select a random word
     word_num = randint(0, len(words) - 1)
-    while word_num in known_words:
+    word = words[word_num]
+    if len(words) == len(known_words):
+        window.destroy()
+        sys.exit()
+    while word in known_words:
         word_num = randint(0, len(words) - 1)
-    make_canvas(englis=words[word_num][1], french=words[word_num][0])
+        word = words[word_num]
+    make_canvas(englis=word[1], french=word[0])
     
 # Cross BUtton
 cross_image = PhotoImage(file = "images/wrong.png")
