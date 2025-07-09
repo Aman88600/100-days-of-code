@@ -103,6 +103,10 @@
 
 
 import requests
-response = requests.get(url="https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=boolean")
+parameters = {
+    "amount" : 10,
+    "type" : "boolean"
+}
+response = requests.get(url="https://opentdb.com/api.php", params=parameters)
 data = response.json()
 question_data = data["results"]
