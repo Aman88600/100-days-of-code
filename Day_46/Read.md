@@ -6,11 +6,15 @@
 - CLIENT_ID = "77csdk;nscknc"
 - CLIENT_SECRET = "48cincucbn"
 
-# (Optional) Make a virtual environment
+# (Optional) Make a virtual environment and activate it
 - python -m venv spotify_venv
+- cd spotify_venv
+- cd Scripts
+- activate
 
 # Install the required dependicies
 pip install -r requirements.txt
+
 
 # If your API credentials are correct then run main.py
 - python main.py(If eveerything goes right, enjoy your songs and maybe, give a star to my repo)
