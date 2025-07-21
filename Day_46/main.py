@@ -1,5 +1,11 @@
 from get_100_songs import get_songs
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+client_id = os.getenv("CLIENT_ID")
+client_secret = os.getenv("CLIENT_SECRET")
 
 # Getting the date
 date = input("What Year would you like to travel to ? write data in this format YYYY-MM-DD:")
@@ -10,8 +16,8 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 # Set up your credentials here
-CLIENT_ID = "774edc442c564ff0bf541ec98bae61da"
-CLIENT_SECRET = "489ad08cf14a409fa086d5ee66629f63"
+CLIENT_ID = client_id
+CLIENT_SECRET = client_secret
 REDIRECT_URI = "https://localhost:8888/callback"  # Must match dashboard
 
 
