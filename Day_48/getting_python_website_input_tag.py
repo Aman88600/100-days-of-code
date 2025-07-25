@@ -22,4 +22,8 @@ button = driver.find_element(By.ID, value="submit")
 # Getting button size
 print(button.size)
 
+# Getting the link
+link = driver.find_element(By.CSS_SELECTOR, value=".documentation-widget a")
+print(link.text)
+
 driver.quit()
