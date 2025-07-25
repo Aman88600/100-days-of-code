@@ -21,7 +21,7 @@ try :
     driver.find_element(By.CLASS_NAME, value='a-button-text').click()
 except :
     print("No continue button")
-finally:
+finally:    
     # Getting the price
     price2 = driver.find_element(By.XPATH, value='/html/body/div[2]/div/div/div[5]/div[4]/div[14]/div/div/div[4]/div[1]/span[3]/span[2]/span[2]')
     print(price2.get_attribute("innerText"))
