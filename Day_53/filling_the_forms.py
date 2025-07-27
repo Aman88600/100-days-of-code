@@ -21,21 +21,23 @@ chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 driver = webdriver.Chrome(options=chrome_options)
 # Going to app brewery website
 
-
+'''
+<input type="text" class="whsOnd zHQkBf" jsname="YPqjbf" autocomplete="off" tabindex="0" aria-labelledby="i1 i4" aria-describedby="i2 i3" aria-disabled="false" dir="auto" data-initial-dir="auto" data-initial-value="">
+'''
 # Filling the form and click the button
 def fill_and_click(address, price, link):
     driver.get("https://docs.google.com/forms/d/e/1FAIpQLSfeR7PFJ3GJmyn2_KLo-Wo74wfr5H-RVJtescA9evfR_jGB-A/viewform?usp=header")
     def fill_form(xpath, value):
         # Getting the element
-        first_name = driver.find_element(By.XPATH, value=xpath)
+        first_name = driver.find_element(By.CSS_SELECTOR, value=xpath)
         # Filling the element
         first_name.send_keys(value, Keys.ENTER)
     # Filling the Address
-    fill_form(xpath='//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input', value=address)
+    fill_form(xpath="input[aria-labelledby='i1 i4']", value=address)
     # Filling the Price
-    fill_form(xpath='//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input', value=price)
+    fill_form(xpath="input[aria-labelledby='i6 i9']", value=price)
     # Filling Link
-    fill_form(xpath='//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input', value=link)
+    fill_form(xpath="input[aria-labelledby='i11 i14']", value=link)
     # Click the submit button
     submit_button = driver.find_element(By.XPATH, value='//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span')
     submit_button.click()
