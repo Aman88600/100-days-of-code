@@ -1,0 +1,17 @@
+Day-53
+
+#1 Make a Google Form with 3 questions(Done)
+Question 1. What's the address of the property?(Done)
+Question 2. What's the pricing per month?(Done)
+Question 3. What's the link to the property?(Done)
+
+Link_to_google_form : https://docs.google.com/forms/d/e/1FAIpQLSfeR7PFJ3GJmyn2_KLo-Wo74wfr5H-RVJtescA9evfR_jGB-A/viewform?usp=header
+
+Zillow_web_site_clone : https://appbrewery.github.io/Zillow-Clone/
+
+#2 Zillio_scraping(Done)
+1. Scrape all the listings from the link:https://appbrewery.github.io/Zillow-Clone/ (Done)
+2 . Get all the prices, addressed and links (Done)
+3. Use the values of prices, address and links to fill the google forms with selenium(Done)
+4 . Make a Google Sheet(Done)
+
