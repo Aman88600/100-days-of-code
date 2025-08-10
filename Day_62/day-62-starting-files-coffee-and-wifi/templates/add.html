@@ -9,9 +9,56 @@
 
       <h1>Add a new cafe into the database</h1>
 
-      <!-- This is where your WTForm will go -->
+		<form method="POST" action="{{url_for('add_cafe')}}" class="container mt-4">
+			{{ form.hidden_tag() }}
 
-	  <p class="space-above"><a href="#">See all cafes</a></p>
+			<div class="mb-3">
+				{{ form.cafe.label(class="form-label") }}
+				{{ form.cafe(class="form-control") }}
+			</div>
+
+			<div class="mb-3">
+				{{ form.location.label(class="form-label") }}
+				{{ form.location(class="form-control") }}
+				{% if form.location.errors %}
+					<div class="text-danger small">
+						{{ form.location.errors[0] }}
+					</div>
+				{% endif %}
+			</div>
+
+			<div class="mb-3">
+				{{ form.open_time.label(class="form-label") }}
+				{{ form.open_time(class="form-control") }}
+			</div>
+
+			<div class="mb-3">
+				{{ form.close_time.label(class="form-label") }}
+				{{ form.close_time(class="form-control") }}
+			</div>
+
+			<div class="mb-3">
+				{{ form.coffee_rating.label(class="form-label") }}
+				{{ form.coffee_rating(class="form-select") }}
+			</div>
+
+			<div class="mb-3">
+				{{ form.wifi_rating.label(class="form-label") }}
+				{{ form.wifi_rating(class="form-select") }}
+			</div>
+
+			<div class="mb-3">
+				{{ form.power_socket_rating.label(class="form-label") }}
+				{{ form.power_socket_rating(class="form-select") }}
+			</div>
+
+			<div class="mb-3">
+				{{ form.submit(class="btn btn-primary") }}
+			</div>
+		</form>
+
+
+	  <p class="space-above"><a href="{{ url_for('cafes') }}">See all cafes</a></p>
 
     </div>
   </div>
