@@ -43,3 +43,29 @@ print(f'Starting Median Salary = {clean_df["Starting Median Salary"].loc[row]}')
 print(f'Mid-Career Median Salary = {clean_df["Mid-Career Median Salary"].loc[row]}')
 print(f'Mid-Career 10th Percentile Salary = {clean_df["Mid-Career 10th Percentile Salary"].loc[row]}')
 print(f'Mid-Career 90th Percentile Salary = {clean_df["Mid-Career 90th Percentile Salary"].loc[row]}')
+
+# Calculating the difference between 90th percetile and 10th percentile
+spread_col = clean_df["Mid-Career 90th Percentile Salary"] - clean_df["Mid-Career 10th Percentile Salary"]
+
+print(clean_df.sort_values('Mid-Career 90th Percentile Salary').tail())
+
+clean_df.insert(1, "Spread", spread_col)
+print(clean_df.sort_values('Spread').tail())
+
+
+
+# Group By
+print(clean_df.groupby('Group')['Starting Median Salary'].mean())
+
+
+
+
+
+
+
+
+
+
+
+
+
